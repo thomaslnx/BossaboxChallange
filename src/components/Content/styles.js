@@ -61,3 +61,5 @@ export const Button = styled.button`
   width: 120px;
   height: 30px;
 `;
+
+export const List = styled.div``;
