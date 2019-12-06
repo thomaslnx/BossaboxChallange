@@ -10,6 +10,7 @@ export default createGlobalStyle`
 
   html, body, #root {
     min-height: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
   }
 
   body {

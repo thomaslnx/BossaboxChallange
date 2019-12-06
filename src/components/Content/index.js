@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { FaSearch, FaPlus } from 'react-icons/fa';
+import { FaSearch, FaPlus, FaTimes } from 'react-icons/fa';
+
 import { Container, Form, Button, Label, InputContainer, List } from './styles';
 
 import api from '../../services/api';
@@ -11,25 +12,17 @@ export default class Content extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-
-    const response = await api.get('/tools');
     const { toolsList } = this.state;
 
-    const toolsSet = response.data.map(obj => {
-      return {
-        name: obj.title,
-        description: obj.description
-      };
-    });
+    const response = await api.get('/tools');
 
     this.setState({
-      toolsList: [...toolsList, toolsSet]
+      toolsList: [...toolsList, response.data]
     });
-
-    console.log(toolsSet);
   };
 
   render() {
+    const { toolsList } = this.state;
     return (
       <Container>
         <Form onSubmit={this.handleSubmit}>
@@ -49,7 +42,21 @@ export default class Content extends Component {
         </Form>
 
         <List>
-          <h1> Lista de repositorios.</h1>
+          {toolsList.map((tools, index) => (
+            <ul key={index}>
+              {tools.map(item => (
+                <li key={item.id}>
+                  <span className="title">
+                    <a href={item.link}>{item.title}</a>
+                    <span>
+                      <FaTimes /> remove
+                    </span>
+                  </span>
+                  <span className="description">{item.description}</span>
+                </li>
+              ))}
+            </ul>
+          ))}
         </List>
       </Container>
     );

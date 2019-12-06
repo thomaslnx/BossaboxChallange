@@ -62,4 +62,41 @@ export const Button = styled.button`
   height: 30px;
 `;
 
-export const List = styled.div``;
+export const List = styled.ul`
+  margin-top: 20px;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    background: #feefee;
+    border: 1px solid #fcc6c5;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+
+    span {
+      margin-bottom: 10px;
+
+      &.title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        svg {
+          position: relative;
+          top: 3px;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+  }
+`;
