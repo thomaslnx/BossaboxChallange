@@ -100,3 +100,8 @@ export const List = styled.ul`
 
   }
 `;
+
+export const PopupboxContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
