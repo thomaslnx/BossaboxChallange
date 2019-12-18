@@ -105,3 +105,45 @@ export const PopupboxContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const LightBoxWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-color: green;
+  width: 500px;
+  height: 400px;
+  padding: 30px 0;
+  background: #fcd7d6;
+
+  span {
+    fontsize: 20px;
+    color: green;
+    position: relative;
+    right: 170px;
+    marginbottom: 30px;
+  }
+`;
+
+export const ToolsForm = styled.form`
+  display: flex;
+  flex-direction: column;
+
+  input {
+    width: 400px;
+    height: 25px;
+    border: 1px solid;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    width: 90px;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 4px;
+    position: relative;
+    left: 330px;
+    font-size: 16px;
+  }
+`;

@@ -3,7 +3,16 @@ import { FaSearch, FaPlus, FaTimes } from 'react-icons/fa';
 import { PopupboxManager, PopupboxContainer } from 'react-popupbox';
 
 import 'react-popupbox/dist/react-popupbox.css';
-import { Container, Form, Button, Label, InputContainer, List } from './styles';
+import {
+  Container,
+  Form,
+  Button,
+  Label,
+  InputContainer,
+  List,
+  LightBoxWrapper,
+  ToolsForm
+} from './styles';
 
 import api from '../../services/api';
 
@@ -31,67 +40,28 @@ export default class Content extends Component {
     this.lightBox();
   };
 
+  addTool = async e => {
+    e.preventDefault();
+    window.alert('Ferramenta Adicionada com Sucesso!');
+  };
+
   lightBox() {
-    const lightboxWrapper = {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      fontColor: 'green',
-      width: '500px',
-      height: '400px',
-      padding: '30px 0',
-      background: '#FCD7D6'
-    };
-
-    const title = {
-      fontSize: '20px',
-      color: 'green',
-      position: 'relative',
-      right: '170px',
-      marginBottom: '30px'
-    };
-
-    const content = {
-      display: 'flex',
-      flexDirection: 'column'
-    };
-
-    const input = {
-      width: '400px',
-      height: '25px',
-      border: '1px solid',
-      borderRadius: '4px',
-      marginBottom: '20px'
-    };
-
-    const button = {
-      width: '70px',
-      height: '20px',
-      border: '1px solid',
-      borderRadius: '4px',
-      position: 'relative',
-      left: '330px',
-      fontSize: '16px'
-    };
-
     this.content = (
-      <div style={lightboxWrapper}>
-        <span style={title}>Add New Tool</span>
-        <form style={content}>
+      <LightBoxWrapper>
+        <span>Add New Tool</span>
+        <ToolsForm onSubmit={this.addTool}>
           <Label for="toolname">Tool Name</Label>
-          <input style={input} type="text" id="toolname" />
+          <input type="text" id="toolname" />
           <Label for="link">Tool Link</Label>
-          <input style={input} type="text" id="link" />
+          <input type="text" id="link" />
           <Label for="tooldescription">Tool Description</Label>
-          <input style={input} type="text" id="tooldescription" />
+          <input type="text" id="tooldescription" />
           <Label for="tags">Tags</Label>
-          <input style={input} type="text" id="tags" />
+          <input type="text" id="tags" />
 
-          <button style={button} type="submit">
-            Add Tool
-          </button>
-        </form>
-      </div>
+          <button type="submit">Add Tool</button>
+        </ToolsForm>
+      </LightBoxWrapper>
     );
 
     PopupboxManager.open({ content: this.content });
