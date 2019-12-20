@@ -114,7 +114,7 @@ export const LightBoxWrapper = styled.div`
   width: 500px;
   height: 500px;
   padding: 30px 30px;
-  background: #fcd7d6;
+  background: #fcaeac;
 
   span {
     display: flex;
