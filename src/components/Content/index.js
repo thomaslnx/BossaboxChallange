@@ -48,18 +48,20 @@ export default class Content extends Component {
   lightBox() {
     this.content = (
       <LightBoxWrapper>
-        <span>Add New Tool</span>
+        <span>
+          <FaPlus /> <p>Add New Tool</p>
+        </span>
         <ToolsForm onSubmit={this.addTool}>
           <Label for="toolname">Tool Name</Label>
           <input type="text" id="toolname" />
           <Label for="link">Tool Link</Label>
           <input type="text" id="link" />
           <Label for="tooldescription">Tool Description</Label>
-          <input type="text" id="tooldescription" />
+          <textarea type="text" id="tooldescription" />
           <Label for="tags">Tags</Label>
           <input type="text" id="tags" />
 
-          <button type="submit">Add Tool</button>
+          <button type="submit"> Add Tool</button>
         </ToolsForm>
       </LightBoxWrapper>
     );

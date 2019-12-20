@@ -112,38 +112,71 @@ export const LightBoxWrapper = styled.div`
   align-items: center;
   font-color: green;
   width: 500px;
-  height: 400px;
-  padding: 30px 0;
+  height: 500px;
+  padding: 30px 30px;
   background: #fcd7d6;
 
   span {
-    fontsize: 20px;
-    color: green;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: bold;
+    font-color: #170c3a;
     position: relative;
-    right: 170px;
-    marginbottom: 30px;
+    right: 130px;
+    margin-bottom: 30px;
+
+    svg {
+      position: relative;
+      top: 2px;
+      height: 15px;
+    }
+
+    p {
+      margin-left: 30px;
+      font-family: 'PT Mono', monospace;
+    }
   }
 `;
 
 export const ToolsForm = styled.form`
   display: flex;
   flex-direction: column;
+  font-family: 'Source Sans Pro', sans-serif;
 
   input {
     width: 400px;
     height: 25px;
-    border: 1px solid;
+    background: f5f4f6;
+    border: 1px solid #ebeaed;
     border-radius: 4px;
+    margin-top: 5px;
     margin-bottom: 20px;
+    padding: 0 10px;
+  }
+
+  textarea {
+    background: f5f4f6;
+    height: 90px;
+    border: 1px solid #ebeaed;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    resize: none;
   }
 
   button {
-    width: 90px;
-    height: 20px;
-    border: 1px solid;
-    border-radius: 4px;
-    position: relative;
-    left: 330px;
     font-size: 16px;
+    background: #fcc6c5;
+    border: 1px solid #fcc6c5;
+    color: #f95e5a;
+    border-radius: 5px;
+
+    width: 120px;
+    height: 30px;
+    position: relative;
+    top: 10px;
+    left: 280px;
   }
 `;
