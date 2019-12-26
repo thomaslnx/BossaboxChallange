@@ -5,13 +5,10 @@ import { PopupboxManager, PopupboxContainer } from 'react-popupbox';
 import 'react-popupbox/dist/react-popupbox.css';
 import {
   Container,
-  Form,
-  Button,
-  Label,
+  FormContainer,
   InputContainer,
   List,
-  LightBoxWrapper,
-  ToolsForm
+  LightBoxWrapper
 } from './styles';
 
 import api from '../../services/api';
@@ -43,6 +40,20 @@ export default class Content extends Component {
   addTool = async e => {
     e.preventDefault();
     window.alert('Ferramenta Adicionada com Sucesso!');
+
+    console.log(e);
+
+    const options = {
+      headers: { 'Content-type': 'application/json' }
+    };
+
+    // const tool = await api.post('/tools', {
+    //   id: {e.target.toolname},
+    //   title: ,
+    //   link: ,
+    //   description: ,
+    //   tags: [],
+    // }, options)
   };
 
   lightBox() {
@@ -51,18 +62,18 @@ export default class Content extends Component {
         <span>
           <FaPlus /> <p>Add New Tool</p>
         </span>
-        <ToolsForm onSubmit={this.addTool}>
-          <Label for="toolname">Tool Name</Label>
+        <form onSubmit={this.addTool}>
+          <span>Tool Name</span>
           <input type="text" id="toolname" />
-          <Label for="link">Tool Link</Label>
+          <span>Tool Link</span>
           <input type="text" id="link" />
-          <Label for="tooldescription">Tool Description</Label>
+          <span>Tool Description</span>
           <textarea type="text" id="tooldescription" />
-          <Label for="tags">Tags</Label>
+          <span>Tags</span>
           <input type="text" id="tags" />
 
           <button type="submit"> Add Tool</button>
-        </ToolsForm>
+        </form>
       </LightBoxWrapper>
     );
 
@@ -73,22 +84,25 @@ export default class Content extends Component {
     const { toolsList } = this.state;
     return (
       <Container>
-        <Form onSubmit={this.handleSubmit}>
+        <FormContainer>
+          <form>
+            <InputContainer>
+              <FaSearch />
+              <input className="search" type="text" placeholder="search" />
+
+              <label htmlFor="searchtags">
+                <input className="boxcheck" type="checkbox" id="searchtags" />
+                <span>search in tags only </span>
+              </label>
+            </InputContainer>
+          </form>
+
           <PopupboxContainer />
-          <InputContainer>
-            <FaSearch />
-            <input className="search" type="text" placeholder="search" />
 
-            <Label for="searchtags">
-              <input className="boxcheck" type="checkbox" id="searchtags" />
-              <p>search in tags only </p>
-            </Label>
-          </InputContainer>
-
-          <Button>
+          <button type="button" onClick={this.handleSubmit}>
             <FaPlus /> Add
-          </Button>
-        </Form>
+          </button>
+        </FormContainer>
 
         <List>
           {toolsList.map((tools, index) => (

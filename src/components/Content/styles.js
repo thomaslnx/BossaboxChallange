@@ -5,14 +5,52 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Form = styled.form`
-  margin: 32px 0 0 -15px;
+export const FormContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  min-width: 100%;
-  font-family: 'Source Sans Pro', sans-serif;
+  justify-content: space-between;
+  margin-top: 32px;
+
+  form {
+    margin: 0 0 0 -15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  button {
+    svg {
+      height: 13px;
+      margin-top: 2px;
+      margin-right: 2px;
+    }
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 16px;
+    background: #fcd7d6;
+    border: 1px solid #fcc6c5;
+    color: #f95e5a;
+    border-radius: 5px;
+
+    width: 100px;
+    height: 30px;
+  }
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+
+  label {
+    input {
+      margin: 12px 10px;
+    }
+  }
 
   svg {
     position: relative;
@@ -21,45 +59,12 @@ export const Form = styled.form`
   }
 
   input.search {
-    width: 300px;
+    width: 200px;
     padding: 5px 30px;
     border: 1px solid #dedce1;
     border-radius: 5px;
     font-size: 20px;
   }
-`;
-
-export const InputContainer = styled.div`
-  display: flex;
-`;
-
-export const Label = styled.label`
-  display: flex;
-  align-items: center;
-
-  input.boxcheck {
-    margin: 5px 5px 0 10px;
-  }
-`;
-
-export const Button = styled.button`
-  svg {
-    position: relative;
-    left: -5px;
-    top: 1px;
-  }
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  font-size: 16px;
-  background: #fcd7d6;
-  border: 1px solid #fcc6c5;
-  color: #f95e5a;
-  border-radius: 5px;
-
-  width: 120px;
-  height: 30px;
 `;
 
 export const List = styled.ul`
