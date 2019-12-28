@@ -114,21 +114,70 @@ export const PopupboxContainer = styled.div`
 export const LightBoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-color: green;
-  width: 500px;
-  height: 500px;
-  padding: 30px 30px;
+  width: 550px;
+  height: 550px;
+  padding: 20px 20px;
   background: #fcaeac;
+
+  form {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 100%;
+
+    span {
+      align-self: flex-start;
+      margin-left: 30px;
+    }
+
+    input {
+      width: 450px;
+      height: 25px;
+      background: f5f4f6;
+      border: 1px solid #ebeaed;
+      border-radius: 4px;
+      margin-top: -20px;
+      margin-bottom: 20px;
+      padding: 0 10px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 16px;
+    }
+
+    textarea {
+      background: f5f4f6;
+      height: 90px;
+      width: 450px;
+      border: 1px solid #ebeaed;
+      border-radius: 4px;
+      margin-top: -20px;
+      margin-bottom: 20px;
+      padding: 0 10px;
+      resize: none;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 16px;
+    }
+
+    button {
+      font-size: 16px;
+      background: #fcc6c5;
+      border: 1px solid #fcc6c5;
+      color: #f95e5a;
+      border-radius: 5px;
+
+      width: 120px;
+      height: 30px;
+      top: 10px;
+      align-self: flex-end;
+    }
+  }
 
   span {
     display: flex;
-    flex-direction: row;
     font-size: 20px;
     font-weight: bold;
     font-color: #170c3a;
     position: relative;
-    right: 130px;
     margin-bottom: 30px;
 
     svg {
@@ -138,50 +187,8 @@ export const LightBoxWrapper = styled.div`
     }
 
     p {
-      margin-left: 30px;
+      margin-left: 10px;
       font-family: 'PT Mono', monospace;
     }
-  }
-`;
-
-export const ToolsForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  font-family: 'Source Sans Pro', sans-serif;
-
-  input {
-    width: 400px;
-    height: 25px;
-    background: f5f4f6;
-    border: 1px solid #ebeaed;
-    border-radius: 4px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    padding: 0 10px;
-  }
-
-  textarea {
-    background: f5f4f6;
-    height: 90px;
-    border: 1px solid #ebeaed;
-    border-radius: 4px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    padding: 0 10px;
-    resize: none;
-  }
-
-  button {
-    font-size: 16px;
-    background: #fcc6c5;
-    border: 1px solid #fcc6c5;
-    color: #f95e5a;
-    border-radius: 5px;
-
-    width: 120px;
-    height: 30px;
-    position: relative;
-    top: 10px;
-    left: 280px;
   }
 `;

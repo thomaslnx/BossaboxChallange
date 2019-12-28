@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Title = styled.p`
+export const Title = styled.span`
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 42px;
   letter-spacing: 0.84px;

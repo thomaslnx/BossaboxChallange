@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, Input } from '@rocketseat/unform';
 import { FaSearch, FaPlus, FaTimes } from 'react-icons/fa';
 import { PopupboxManager, PopupboxContainer } from 'react-popupbox';
 
@@ -37,23 +38,28 @@ export default class Content extends Component {
     this.lightBox();
   };
 
-  addTool = async e => {
-    e.preventDefault();
-    window.alert('Ferramenta Adicionada com Sucesso!');
+  addTool = data => {
+    const { toolname, link, tooldescription, tags } = data;
+    const tagArray = tags.split(',');
 
-    console.log(e);
+    const listTags = tagArray.map(tag => tag.trim());
 
     const options = {
       headers: { 'Content-type': 'application/json' }
     };
 
-    // const tool = await api.post('/tools', {
-    //   id: {e.target.toolname},
-    //   title: ,
-    //   link: ,
-    //   description: ,
-    //   tags: [],
-    // }, options)
+    const tool = api.post(
+      '/tools',
+      {
+        title: toolname,
+        link,
+        description: tooldescription,
+        tags: listTags
+      },
+      options
+    );
+
+    console.log(tool);
   };
 
   lightBox() {
@@ -62,18 +68,18 @@ export default class Content extends Component {
         <span>
           <FaPlus /> <p>Add New Tool</p>
         </span>
-        <form onSubmit={this.addTool}>
+        <Form onSubmit={this.addTool}>
           <span>Tool Name</span>
-          <input type="text" id="toolname" />
+          <Input name="toolname" id="toolname" />
           <span>Tool Link</span>
-          <input type="text" id="link" />
+          <Input name="link" id="link" />
           <span>Tool Description</span>
-          <textarea type="text" id="tooldescription" />
+          <Input multiline name="tooldescription" id="tooldescription" />
           <span>Tags</span>
-          <input type="text" id="tags" />
+          <Input name="tags" id="tags" />
 
           <button type="submit"> Add Tool</button>
-        </form>
+        </Form>
       </LightBoxWrapper>
     );
 
